@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function IndexPage() {
@@ -7,7 +8,6 @@ export default function IndexPage() {
   useEffect(() => {
     (async function () {
       const { results } = await (await fetch("/api/lists")).json();
-      console.log(results);
       setLists(results);
       setIsLoading(false);
     })();
@@ -19,7 +19,14 @@ export default function IndexPage() {
       {isLoading ? (
         <h2>Loading</h2>
       ) : (
-        lists.map((list) => <h4>{list.display_name}</h4>)
+        lists.map((list) => (
+          <Link
+            href={`/list/${list.list_name_encoded}`}
+            key={list.list_name_encoded}
+          >
+            <h4>{list.display_name}</h4>
+          </Link>
+        ))
       )}
     </div>
   );
