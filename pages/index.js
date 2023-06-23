@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import styles from "../styles/main.module.css";
 
 export default function IndexPage() {
   const [lists, setLists] = useState([]);
@@ -15,18 +16,20 @@ export default function IndexPage() {
 
   return (
     <div>
-      <h1>The New York Times Best Seller Explorer</h1>
+      <h1 className={styles.title}>The New York Times Best Seller Explorer</h1>
       {isLoading ? (
-        <h2>Loading</h2>
+        <h2 className={styles.loading}>Loading</h2>
       ) : (
-        lists.map((list) => (
-          <Link
-            href={`/list/${list.list_name_encoded}`}
-            key={list.list_name_encoded}
-          >
-            <h4>{list.display_name}</h4>
-          </Link>
-        ))
+        <div className={styles.listsWrapper}>
+          {lists.map((list) => (
+            <Link
+              href={`/list/${list.list_name_encoded}`}
+              key={list.list_name_encoded}
+            >
+              <h4 className={styles.listName}>{`${list.display_name} ->`}</h4>
+            </Link>
+          ))}
+        </div>
       )}
     </div>
   );
