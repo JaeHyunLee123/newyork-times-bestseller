@@ -12,7 +12,7 @@ const nextConfig = {
         destination: `${BASE_API}?name=:genre`,
       },
       {
-        source: "/api/list",
+        source: "/api/lists",
         destination: `${BASE_API}s`,
       },
     ];
