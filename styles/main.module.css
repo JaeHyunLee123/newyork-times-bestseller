@@ -40,32 +40,36 @@
 
 .bookBox {
   width: 200px;
-  height: 400px;
+  height: 450px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   margin: 10px;
 }
 
 .bookImage {
   width: 200px;
-  border: 1px solid black;
   margin-bottom: 5px;
 }
 
 .bookTitle {
   text-transform: uppercase;
   font-size: 20px;
+  text-align: center;
+  margin-bottom: 5px;
 }
 
 .bookAuthor {
   font-size: 16px;
+  text-align: center;
   color: cornflowerblue;
+  margin-bottom: 5px;
 }
 
 .bookBuyNow {
   text-align: center;
   padding: 10px;
   border: 1px solid black;
+  cursor: pointer;
 }
